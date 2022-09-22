@@ -45,6 +45,7 @@ jobs:
           echo Running deployment...
           sleep 10
   staging:
+    needs: [dev]
     environment: staging
     concurrency: staging
     runs-on: ubuntu-latest
@@ -60,6 +61,7 @@ jobs:
           echo Running deployment...
           sleep 10
   prod:
+    needs: [staging]
     environment: prod
     concurrency: prod
     runs-on: ubuntu-latest
