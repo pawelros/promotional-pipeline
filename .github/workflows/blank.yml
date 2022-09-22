@@ -30,6 +30,38 @@ jobs:
           path: |
             app.txt
   dev:
+    environment: dev
+    concurrency: dev
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Deploy
+        run: |
+          echo Running deployment...
+          sleep 10
+  staging:
+    environment: staging
+    concurrency: staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Deploy
+        run: |
+          echo Running deployment...
+          sleep 10
+  prod:
+    environment: prod
+    concurrency: prod
     runs-on: ubuntu-latest
 
     steps:
