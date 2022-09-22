@@ -31,8 +31,6 @@ jobs:
             app.txt
   dev:
     needs: [build]
-    environment: dev
-    concurrency: dev
     runs-on: ubuntu-latest
 
     steps:
